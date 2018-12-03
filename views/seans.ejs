@@ -1,0 +1,44 @@
+<% const film = o.receivedFilm; film.imagePath = "../"+film.imagePath; %>
+<% film.notShow = true; %>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <form>
+              <div class="form-group">
+                <label for="row-select">Select row</label>
+                <select class="form-control" id="row-select">
+                  <option>-- No selected row --</option>
+                  <% for(let i=1;i<=30;i++){ %>
+                    <option><%= i %></option>
+                  <% } %> 
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="col-select">Select column</label>
+                <select class="form-control" id="col-select">
+                  <option>-- No selected column --</option>
+                  <% for(let i=1;i<=40;i++){ %>
+                    <option><%= i %></option>
+                  <% } %> 
+                </select>
+              </div>
+              <div class="btn-group seans" data-id="<%= o.receivedSeans._id %>">
+                  <button type="button" class="btn btn-md btn-outline-success btn-seans-buy">
+                      Buy
+                  </button>
+                  <button type="button" class="btn btn-md btn-outline-success btn-seans-reserve">
+                      Reserve
+                  </button>
+                  <button type="button" class="btn btn-md btn-outline-success btn-seans-cancel">
+                      Cancel Reserve
+                  </button>
+              </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <p>Start time: <%= o.receivedSeans.startTime %></p>
+            <p>Address: <%= o.receivedSeans.address %></p>
+        </div>
+        <%- include('filmComponent', {o: film}); %>
+    </div>
+</div>

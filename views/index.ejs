@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Film booking tool</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+  </head>
+  <body class="text-center">
+    <% if (o.signin) { %>
+      <%- include('sign-in'); %>
+    <% } else %>
+    <% if (o.signup) { %>
+      <%- include('sign-up'); %>
+    <% } else %>
+    <% if (o.album) { %>
+      <%- include('album', {o: { receivedAlbums: o.receivedAlbums }}); %>
+    <% } %>
+    <% if (o.seans) { %>
+      <%- include('seans', {o: { receivedSeans: o.receivedSeans, receivedFilm: o.receivedFilm }}); %>
+    <% } %>
+
+  <div class="main-alert" id="main-alert"></div>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous">
+  </script>
+  <script src="../javascripts/main.js"></script>  
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<main role="main">
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Movies in the box office</h1>
+        <p>
+          <a href="/" class="btn btn-primary my-2 logout">Logout</a>
+        </p>
+      </div>
+    </section>
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+            <% if (o.receivedAlbums) { %>
+                <% o.receivedAlbums.forEach(function(album){ %>
+                    <%- include('filmComponent', {o: album}); %>
+                <% }); %>
+            <% } %>
+        </div>
+      </div>
+    </div>
+</main>
